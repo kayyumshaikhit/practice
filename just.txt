@@ -1,0 +1,1 @@
+Adding the native Jenkins git or checkout block ensures that Jenkins creates the .git folder inside the workspace first, allowing any subsequent Git commands to run successfully without hitting the filesystem boundary error.
