@@ -1,0 +1,145 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+function GetDjango(){
+    const [data, setData] = useState([]);
+
+    useEffect(()=>{
+        axios.get(`http://127.0.0.1:8000/home`)
+        .then(response=>{
+            setData(response.data);
+        })
+        .catch(error=>{
+            console.error(error);
+        });
+    },[]);
+
+    return (
+        <>
+        <h1>Django API With React JS</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                {data.map(m => (
+                    <tr key={m.id}>
+                        <td>{m.id}</td>
+                        <td>{m.city}</td>
+                        <td>{m.state}</td>
+                        <td>{m.country}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+        </>
+    );
+}
+
+export default GetDjango;
+
+
+import React, { useState } from "react";
+import axios from 'axios';
+
+function LatestForm(){
+    const [city,setCity] = useState("");
+    const [state,setState] = useState("");
+    const [country, setCountry] = useState("");
+
+const handleSubmit=(event)=>{
+    event.preventDefault();
+    axios.post(`http://127.0.0.1:8000/`,{city,state,country})
+    .then(response=>{
+        alert("data has been registered on database.")
+    })
+    .catch(error=>{
+        console.error(error);
+    });
+  };
+  return (
+    <>
+    <form method="POST" onSubmit={handleSubmit}>
+      <input type="text" placeholder='city' value={city} onChange={e=>setCity(e.target.value)}/><br/>
+      <input type="text" placeholder='state' value={state} onChange={e=>setState(e.target.value)} /><br/>
+      <input type="text" placeholder='country' value={country}  onChange={e=>setCountry(e.target.value)} />
+      <button type="submit">Submit</button>
+    </form>
+    </>
+  )
+};
+export default LatestForm;
+
+
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem;
+  padding: 5rem;
+  gap: 5px;
+  background-color: #646cffaa;
+  box-shadow: 0 0 30rem;
+  justify-content: stretch;
+  border-radius: 2rem;
+}
+input{
+  height: 2rem;
+  width: 20rem;
+  border-radius: 5rem;
+}
+input:active{
+  background-color: aquamarine;
+}
+table{
+  border-collapse: collapse;
+}
