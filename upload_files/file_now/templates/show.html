@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image </title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            gap: 4px;
+        }
+        td{
+            width: 12%;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            margin: 2rem;
+            padding: 2rem;
+        }
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <button type="submit"><a href="{% url 'create' %}">Create</a></button>
+    </nav>
+    <table border="1">
+        {% for i in data %}
+    <tr>
+        <td>
+    <img src="{{i.file.url}}"/>
+    </td>
+    <td>
+    <section>
+        Name : {{i.name}}<br/>
+        Country : {{i.country}}<br/>
+        fileName: {{ i.file.name }}   
+        <!-- i.media_type.fieldName  -->
+    </section>
+    </td>
+    <td>
+    <button type="submit"><a href="{% url 'delete' i.id %}">delete</a></button>
+     </td>
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
