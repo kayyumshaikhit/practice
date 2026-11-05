@@ -1,0 +1,87 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+body{
+  background-color: beige;
+  display: flex;
+  align-items: center;
+}
+h1{
+  color: chartreuse;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem;
+  padding: 5rem;
+  gap: 5px;
+  background-color: #646cffaa;
+  box-shadow: 0 0 30rem;
+  justify-content: stretch;
+  border-radius: 2rem;
+}
+input{
+  height: 2rem;
+  width: 20rem;
+  border-radius: 5rem;
+}
+input:active{
+  background-color: goldenrod;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td{
+  border: 1px solid #d35858;
+  padding: 8px;
+  text-align: left;
+  color: black;
+}
+
+table thead{
+  background-color: #6e5858;
+  text-align: center;
+  align-items: center;
+}
+
+nav{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+nav button{
+  border-radius: 5rem;
+  border-color: blueviolet;
+  margin: 0.5rem;
+  box-shadow: 0 0 30px;
+  z-index: 2;
+}
+
+table button{
+  border-radius: 5rem;
+  border-color: gold;
+}
+
+video{
+  box-shadow: 0 0 30px;
+}
