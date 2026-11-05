@@ -19,13 +19,13 @@ from rest_framework import status
 @api_view(["POST"])
 def upload_video(request):
     serializer = FileSerializer(data=request.data)
-    if request.method == "POST":
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-    else:
-        serializer = FileSerializer(data=request.data)
-    return Response(serializer.error)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    # Notice the 's' in errors and explicit HTTP 400 Bad Request status
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["GET"])
 def get_file(request,id):
