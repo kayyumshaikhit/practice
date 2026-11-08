@@ -1,6 +1,6 @@
 import React  from 'react';
 import { useParams} from 'react-router-dom';
-import api from './api';
+import api from '../api';
 
 const Video = () => {
   const {id} = useParams();
