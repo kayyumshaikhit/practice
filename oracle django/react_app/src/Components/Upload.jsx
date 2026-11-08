@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import api from './api';
+import api from '../api';
 
 const Upload = () => {
   const [file, setFile] = useState(null); // Initialize as null for safety
