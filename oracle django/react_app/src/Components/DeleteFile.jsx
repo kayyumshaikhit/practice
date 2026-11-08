@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import api from './api';
 
 const DeleteFile = () => {
   const {id} = useParams();
@@ -9,7 +10,7 @@ const DeleteFile = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault();
-    axios.delete(`http://localhost:8000/drop/${id}/`,{headers:{'Content-Type':'multipart/form-data'}})
+    api.delete(`/drop/${id}/`,{headers:{'Content-Type':'multipart/form-data'}})
     .then(response=>alert("dropped..."))
     .catch(error=>console.error(error))
     navigate("/")

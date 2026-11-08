@@ -2,11 +2,12 @@ import React from 'react'
 import axios from 'axios';
 import {useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import api from './api';
 
 const Records = () => {
     const [data,setData] = useState([]);
     useEffect(()=>{
-         axios.get(`http://localhost:8000/getall/`)
+         api.get(`/getall/`)
         .then(response=>setData(response.data))
         .catch(error=>console.error(error))
     },[])
