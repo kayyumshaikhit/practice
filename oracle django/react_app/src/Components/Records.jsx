@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import {useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import api from './api';
+import api from '../api';
 
 const Records = () => {
     const [data,setData] = useState([]);
