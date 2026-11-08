@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import api from './api';
+import api from '../api';
 
 const DeleteFile = () => {
   const {id} = useParams();
